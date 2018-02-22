@@ -87,7 +87,7 @@ module RedisCopy
     end
 
     def redis_from(connection_string)
-      connection_string = "redis://#{connection_string}" unless connection_string.start_with?("redis://")
+      connection_string = "redis://#{connection_string}" unless connection_string.start_with?("redis://", "rediss://")
 
       # Connect & Ping to ensure access.
       Redis.new(url: connection_string).tap(&:ping)
